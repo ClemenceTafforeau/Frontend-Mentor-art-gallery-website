@@ -1,0 +1,460 @@
+/* Fonts */
+
+/* big-shoulders-display-800 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Big Shoulders Display';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../assets/fonts/big-shoulders-display-v21-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* big-shoulders-display-900 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Big Shoulders Display';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../assets/fonts/big-shoulders-display-v21-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* outfit-200 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../assets/fonts/outfit-v11-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Variables */
+
+:root {
+    --clr-primary-1: #D5966C;
+    --clr-neutral-light: #FFFFFF;
+    --clr-neutral-medium: #444444;
+    --clr-neutral-dark: #151515;
+
+    --ff-title: 'Big Shoulders Display', sans-serif;
+    --ff-body: 'Outfit', sans-serif;
+
+    --h1-fs: clamp(6rem, 4.971rem + 3.214vw, 9.6rem);
+    --h2-main-fs: clamp(5rem, 4.714rem + 1.429vw, 6rem);
+    --h2-location-fs: 7rem;
+    --subtitle-fs: clamp(3.2rem, 3.086rem + 0.571vw, 3.6rem);
+    --btn-fs: 2rem;
+    --body-fs: clamp(1.8rem, -1.4rem + 2.5vw, 2.2rem);
+
+    --h1-lh: clamp(5.5rem, 4.557rem + 2.946vw, 8.8rem);
+    --h2-main-lh: clamp(4.5rem, 4.214rem + 0.893vw, 5.5rem);
+    --h2-location-lh: 7rem;
+    --subtitle-lh: clamp(3.2rem, 3.086rem + 0.571vw, 3.6rem);
+    --btn-lh: 2.4rem;
+    --body-lh: clamp(2.8rem, -0.4rem + 2.5vw, 3.2rem);
+
+    --btn-spacing: 0.364rem;
+
+    --spacing-x: clamp(1.6rem, -2.657rem + 13.304vw, 16.5rem);
+    --spacing-x-footer: clamp(3.2rem, -0.6rem + 11.875vw, 16.5rem);
+    --spacing-y-footer: clamp(4.8rem, 3.886rem + 2.857vw, 8rem);
+}
+
+/* General styles */
+
+body {
+    font-family: var(--ff-body);
+    color: var(--clr-neutral-medium);
+    font-size: var(--body-fs);
+    line-height: var(--body-lh);
+}
+
+picture img {
+    width: 100vw;
+}
+
+h1, h2 {
+    font-family: var(--ff-title);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--clr-neutral-dark);
+}
+
+h1 {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+}
+
+footer {
+    font-size: var(--body-fs);
+    line-height: var(--body-lh);
+    padding-inline: var(--spacing-x-footer);
+    padding-block: var(--spacing-y-footer);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+#mag-logo {
+    min-width: 11rem;
+}
+
+.btn {
+    display: flex;
+    text-decoration: inherit;
+    color: inherit;
+    width: fit-content;
+}
+
+.btn:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.btn-txt {
+    padding-inline: 3.2rem;
+    padding-block: 2.4rem;
+    background-color: var(--clr-neutral-dark);
+    color: var(--clr-neutral-light);
+    text-transform: uppercase;
+    font-family: var(--ff-title);
+    font-size: var(--btn-fs);
+    line-height: var(--btn-lh);
+    letter-spacing: var(--btn-spacing);
+    font-weight: 800;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover .btn-txt {
+    background-color: var(--clr-primary-1);
+}
+
+.btn-icon {
+    padding: 2.4rem;
+    background-color: var(--clr-primary-1);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover .btn-icon {
+    background-color: var(--clr-neutral-dark);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 48em) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .footer-info {
+        flex-direction: row;
+        gap: 6.4rem;
+    }
+    .footer-info p {
+        max-width: 40rem;
+    }
+}
+
+/* Specific styles */
+
+/** Home page **/
+
+.hero {
+    position: relative;
+}
+
+.hero-txt {
+    padding-block: 3.2rem;
+    padding-inline: var(--spacing-x);
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.hero-txt-cta {
+    display: grid;
+    align-items: start;
+    gap: 3.2rem;
+}
+
+.main-content {
+    padding-inline: var(--spacing-x);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.main-content h2 {
+    font-size: var(--h2-main-fs);
+    line-height: var(--h2-main-lh);
+}
+
+.cta-section-1 {
+    display: grid;
+    gap: 1.6rem;
+}
+
+.cta-section-2 {
+    display: grid;
+    gap: 1.6rem;
+}
+
+.cta-txt-container-1 {
+    padding-block: .8rem;
+}
+
+.cta-txt-container-1 h2 {
+    padding-block-end: 2.4rem;;
+}
+
+.cta-txt-container-2 {
+    background-color: var(--clr-neutral-dark);
+    color: var(--clr-neutral-light);
+    padding-inline: clamp(2.4rem, 1.714rem + 3.429vw, 4.8rem);
+    padding-block: 4.8rem;
+}
+
+.cta-txt-container-2 h2{
+    color: var(--clr-neutral-light);
+    padding-block-end: 2.4rem;
+}
+
+.footer-dark {
+    background-color: var(--clr-neutral-dark);
+    color: var(--clr-neutral-light);
+    margin-block-start: clamp(7.5rem, 6.429rem + 3.348vw, 11.25rem);
+}
+
+.social-links-list {
+    display: flex;
+    gap: 2.4rem;
+}
+
+.footer-dark .social-links-list li a svg path {
+    color: var(--clr-neutral-light);
+    transition: all .5s ease-in-out;
+}
+
+.footer-dark .social-links-list li:hover a svg path {
+    fill: var(--clr-primary-1);
+}
+
+.footer-light .social-links-list li a svg path {
+    color: var(--clr-neutral-dark);
+    transition: all .3s ease-in-out;
+}
+
+.footer-light .social-links-list li:hover a svg path {
+    fill: var(--clr-neutral-light);
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 48em) {
+    main:not(.location-main) {
+        display: grid;
+        gap: 12rem;
+    }
+    .hero {
+        display: grid;
+        grid-template-columns: 40% 20% 1fr;
+        align-items: center;
+    }
+    .hero picture {
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+    }
+    .hero-txt {
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+    }
+    .cta-section-1 {
+        grid-template-columns: 1fr 55%;
+        gap: 6.4rem;
+        align-items: center;
+    }
+    .cta-section-1 picture {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
+    .cta-txt-container-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+    .cta-section-2 {
+        grid-template-columns: 55% 1fr;
+        grid-template-rows: 45% 1fr;
+    }
+    .cta-section-2 picture:first-child {
+        grid-row: 1 / 3;
+        object-fit: contain;
+        overflow: hidden;
+    }
+    .cta-section-2 picture:first-child img {
+        max-width: 120%;
+    }
+    .cta-section-2 picture:nth-child(2) {
+        object-fit: contain;
+        overflow: hidden;
+    }
+    .cta-txt-container-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 80em) {
+    .hero {
+        grid-template-columns: 32rem 35% 5% 30%;
+        position: relative;
+    }
+    .hero picture {
+        grid-column: 2 / 3;
+    }
+    .hero picture img {
+        max-height: 80rem;
+        width: auto;
+    }
+    .hero-txt {
+        flex-direction: row;
+        justify-content: space-between;
+        grid-column: 1 / 5;
+        z-index: 1;
+        padding-inline: 16.5rem;
+    }
+    .hero-txt h1 {
+        background: linear-gradient(to right, var(--clr-neutral-light) 30%, var(--clr-neutral-dark) 30%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        max-width: 52rem;
+        font-size: 9.6rem;
+    }
+    .hero-txt-cta {
+        gap: 6.4rem;
+        max-width: 35rem;
+    }
+    .hero::after {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        background-color: var(--clr-neutral-dark);
+        width: 32rem;
+        top: 0;
+        bottom: 0;
+        left: 0; 
+    }
+    .main-content {
+        gap: 3.2rem;
+    }
+    .cta-section-2 {
+        gap: 3.2rem;
+    }
+}
+
+/** Location page **/
+
+.location-main {
+    position: relative;
+}
+
+.location-main .btn {
+    position: fixed;
+}
+
+.location-main .btn {
+    z-index: 999;
+}
+
+.location-main .btn img {
+    transform: rotate(180deg);
+}
+
+.map {
+    position: relative;
+}
+
+.map img {
+    min-height: 55rem;
+    object-fit: cover;
+    width: 100vw;
+}
+
+.map::after {
+    content: '';
+    position: absolute;
+    background-image: url(../assets/img/location-marker.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 6.6rem;
+    height: 8.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.location-info {
+    background-color: var(--clr-neutral-dark);
+    color: var(--clr-neutral-light);
+    padding-inline: var(--spacing-x);
+    padding-block: clamp(4.8rem, 3.2rem + 5vw, 10.4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+}
+
+.location-info .secondary-h1 {
+    color: var(--clr-neutral-light);
+    font-size: var(--h2-location-fs);
+    line-height: var(--h2-location-lh);
+}
+
+.location-info .subtitle {
+    font-family: var(--ff-title);
+    text-transform: uppercase;
+    color: var(--clr-primary-1);
+    font-size: var(--subtitle-fs);
+    line-height: var(--h2-subtitle-lh);
+}
+
+.location-specifics {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.footer-light {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-neutral-dark);
+}
+
+.footer-light #mag-logo path {
+    fill: var(--clr-neutral-dark);
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 48em) {
+    .location-info {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 6.4rem;
+    }
+    .location-specifics {
+        max-width: 60rem;
+    }
+    .location-info h1 {
+        max-width: 22rem;
+    }
+    .location-main .btn {
+        left: var(--spacing-x);
+    }
+}
